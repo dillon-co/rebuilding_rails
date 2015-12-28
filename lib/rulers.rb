@@ -11,7 +11,7 @@ module Rulers
 
       if env["PATH_INFO"] == '/'
         return env["quotes/a_quote"]
-
+      end
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
       text = controller.send(act)
