@@ -12,7 +12,7 @@ module Rulers
       if env["PATH_INFO"] == '/'
         klass, act = get_home(env)
         controller = klass.new(env)
-        text = controlelr.send(act)
+        text = controller.send(act)
         return [200, {'Content_type' => 'text/html'}, [text]] 
       end
       klass, act = get_controller_and_action(env)
