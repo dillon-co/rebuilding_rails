@@ -7,6 +7,13 @@ module Rulers
       cont += "Controller" # "PeopleController"
 
       [Object.const_get(cont), action]
-    end  
+    end 
+
+    def get_home(env)
+      cont, action = "quotes", "a_quote"
+      cont = cont.capitalize
+      cont += "Controller"
+      [Object.const_get(cont), action]
+    end 
   end  
 end  
