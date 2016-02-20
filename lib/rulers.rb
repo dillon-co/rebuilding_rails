@@ -9,11 +9,12 @@ module Rulers
         return [404, {'Content_type' => 'text/html'}, []]
       end  
 
-      
-      klass, act = get_controller_and_action(env)
-      controller = klass.new(env)
-      text = controller.send(act)
-      [200, {'Content-Type' => 'text/html'}, [text]]
+      if env["PATH_INFO"] == '/'
+        klass, act = get_controller_and_action(env)
+        controller = klass.new(env)
+        text = controller.send(act)
+        return [200, {'Content-Type' => 'text/html'}, [text]]
+      end
     end  
   end  
 
